@@ -18,25 +18,25 @@ struct MovieCard: View {
 
 extension MovieCard {
     
-//    var itemWidth: CGFloat {
-//        UIScreen.main.bounds.width * type.widthPercent
-//    }
-//    
-//    var itemHeight: CGFloat {
-//        UIScreen.main.bounds.height * type.heightPercent
-//    }
-    
-    
-    private var screenWidth: CGFloat { UIScreen.main.bounds.width }
-    private var screenHeight: CGFloat { UIScreen.main.bounds.height }
-
     var itemWidth: CGFloat {
         screenWidth * type.widthPercent
     }
-
+    
     var itemHeight: CGFloat {
         screenHeight * type.heightPercent
     }
+    
+    
+     var screenWidth: CGFloat { UIScreen.main.bounds.width }
+     var screenHeight: CGFloat { UIScreen.main.bounds.height }
+
+//    var itemWidth: CGFloat {
+//        screenWidth * type.widthPercent
+//    }
+//
+//    var itemHeight: CGFloat {
+//        screenHeight * type.heightPercent
+//    }
 }
 
 struct MovieCard_Previews: PreviewProvider {

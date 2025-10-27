@@ -24,6 +24,9 @@ struct HomeView: View {
                     HStack {
                         ForEach(vm.trendingMovies) { movie in
                             MovieCard(movie: movie)
+                                .onTapGesture {
+                                    vm.selectedMovie = movie
+                                }
                         }
                     }
                    
@@ -61,6 +64,10 @@ struct HomeView: View {
         .preferredColorScheme(.dark)
         .padding()
         .background(Color.appBackground)
+        .fullScreenCover(item: $vm.selectedMovie) {
+            movie in
+            DetailView(movie: movie)
+        }
         .task {
             await vm.fetchTrendingMoviews()
             await vm.fetchTopRatedMoviews()
@@ -70,6 +77,9 @@ struct HomeView: View {
     }
 }
 
-#Preview {
-    HomeView()
+struct HomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        HomeView()
+    }
+   
 }
