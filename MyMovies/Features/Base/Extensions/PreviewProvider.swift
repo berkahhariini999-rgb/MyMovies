@@ -21,6 +21,6 @@ class DeveloperPreview {
     
     let movie = Movie(adult: false, backdropPath: "", genreIDS: [1], id: 102, originalLanguage: "", originalTitle: "", overview: "", popularity: 10.0, posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", releaseDate: "", title: "The Shawshank Redemption", video: false, voteAverage: 10.0, voteCount: 1)
     
-    
+    let genre = Genre(id: 28, name: "Action")
     
 }
