@@ -9,14 +9,12 @@ import Combine
 
 @MainActor
 class DetailViewModel: ObservableObject {
-    
     let movie: Movie
-    let sections: [DetailViewSection] = [.about, .review]
+    let sections: [DetailViewSection] = [.about, .reviews]
     @Published var selectedSection: DetailViewSection = .about
     @Published var reviews: [Review] = []
     
     private let movieService = MovieService()
-    
     init(movie: Movie) {
         self.movie = movie
     }
@@ -24,9 +22,10 @@ class DetailViewModel: ObservableObject {
     func fetchReviews() async {
         do {
             let response: ReviewResponse = try await movieService.fetchData(api: ApiConstructor(endpoint: .movieReviews(movie.id)))
+            print(response)
             reviews = response.results
         } catch {
-            print("Error: \(error)")
+            print("Error fetching reviews: \(error)")
         }
     }
 }

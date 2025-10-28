@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieCard: View {
+
     let movie: Movie
     var type: MovieCardType = .poster
     
@@ -17,26 +18,13 @@ struct MovieCard: View {
 }
 
 extension MovieCard {
-    
     var itemWidth: CGFloat {
         screenWidth * type.widthPercent
     }
-    
+
     var itemHeight: CGFloat {
         screenHeight * type.heightPercent
     }
-    
-    
-     var screenWidth: CGFloat { UIScreen.main.bounds.width }
-     var screenHeight: CGFloat { UIScreen.main.bounds.height }
-
-//    var itemWidth: CGFloat {
-//        screenWidth * type.widthPercent
-//    }
-//
-//    var itemHeight: CGFloat {
-//        screenHeight * type.heightPercent
-//    }
 }
 
 struct MovieCard_Previews: PreviewProvider {
